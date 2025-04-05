@@ -13,3 +13,10 @@ def select_lines (zen_text):
 
 def longest_title (titles):
     return max(titles, key=len)
+
+def imprimir_reglas(rules, clave):
+    rules_final = ""
+    for linea in rules.split("\n"):
+        if clave in linea:
+            rules_final += linea + "\n"
+    return rules_final 
