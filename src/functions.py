@@ -1,5 +1,6 @@
 def select_lines (zen_text):
-    """retorno las lineas del texto zen que cumplen la condicion"""
+    """punto 1: retorno un string con todas las líneas (del zen de python) 
+    cuya segunda palabra comienze con aeiouAEIOU"""
 
     zen_final = ""
     for linea in zen_text.splitlines():     #separo en lineas
@@ -12,11 +13,37 @@ def select_lines (zen_text):
 
 
 def longest_title (titles):
+    """punto 2: retorna el titulo con mas palabras"""
+
     return max(titles, key=len)
 
+
 def imprimir_reglas(rules, clave):
+    """punto 3: retorna un string con las reglas que contienen la palabra clave"""
+
     rules_final = ""
     for linea in rules.split("\n"):
         if clave in linea:
             rules_final += linea + "\n"
     return rules_final 
+
+
+def validar_nombre(nombre):
+    """devuelve true si el nombre cumple las condiciones
+        Al menos 5 caracteres.
+        Contiene al menos un número.
+        Contiene al menos una letra mayúscula.
+        Solo puede contener letras y números.
+
+        .isalnum() # verificar si una cadena solo contiene caracteres alfanuméricos (letras y números) (return boolean)
+        any() # evalúa un iterable (como una lista o generador) y devuelve True si al menos un elemento es True
+    """
+    if not len(nombre) >= 5:
+        return False
+    if not nombre.isalnum():
+        return False
+    if not any(char.isdigit() for char in nombre):
+        return False
+    if not any(char.isupper() for char in nombre):
+        return False
+    return True
