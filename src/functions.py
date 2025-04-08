@@ -47,3 +47,14 @@ def validar_nombre(nombre):
     if not any(char.isupper() for char in nombre):
         return False
     return True
+
+
+def clasificar_velocidad(velocidad):
+    """clasifica la velocidad ingresada. En rápido, normal o lento"""
+
+    if velocidad < 200:
+        return "Rápido"
+    elif 200 <= velocidad <= 500:
+        return "Normal"
+    else:
+        return "Lento"
