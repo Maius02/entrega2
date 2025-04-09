@@ -1,0 +1,1 @@
+from .functions import generar_codigo_descuento

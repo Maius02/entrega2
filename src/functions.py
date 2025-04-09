@@ -1,3 +1,7 @@
+import random
+import string
+
+
 def select_lines (zen_text):
     """punto 1: retorno un string con todas las líneas (del zen de python) 
     cuya segunda palabra comienze con aeiouAEIOU"""
@@ -71,3 +75,15 @@ def cantidad_menciones(descripciones, palabra):
     
     return cantidad
 
+
+def generar_codigo_descuento(usuario, fecha):
+    """devuelve codigo de descuento que contiene nombre, fecha y un random de letras y numeros """
+
+    usuario = usuario.upper()
+    base = f'{usuario}-{fecha}-'
+    restantes = 30 - len(base)
+    #tomo k elementos de la seguencia letras+digitos
+    #y luego uno la secuencia con join
+    extras = ''.join(random.choices(string.ascii_uppercase + string.digits, k=restantes))
+
+    return base + extras
